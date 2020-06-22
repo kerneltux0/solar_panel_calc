@@ -3,22 +3,18 @@ import unittest
 
 class NewVisitorTest(unittest.TestCase):
     def setUp(self):
-        # do something
+        self.browser = webdriver.Firefox()
     
     def tearDown(self):
-        # do something
+        self.browser.quit()
     
-    def test_one(self):
-        # do something
+    def test_visit_site(self):
+        # user goes to web-site
+        self.browser.get('http://localhost:8000')
+        # user sees "Solar Panel Calculator" in the title
+        self.assertIn('Solar Panel Calculator', self.browser.title)
+        # user sees a welcome message describing what the site accomplishes
 
-# user goes to web-site
-browser = webdriver.Firefox()
-browser.get('http://localhost:8000')
-
-# user sees "Solar Panel Calculator" in the title
-assert 'Solar Panel Calculator' in browser.title, "Browser Title was:" + browser.title
-
-# user sees a welcome message describing what the site accomplishes
 
 # user clicks on button labeled "start here"
 
@@ -49,6 +45,5 @@ assert 'Solar Panel Calculator' in browser.title, "Browser Title was:" + browser
 # user sees ballpark figure disclaimer
 
 # user sees result in m^2 or ft^2
-
-browser.quit()
-print('Test passed')
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
