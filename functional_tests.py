@@ -5,7 +5,7 @@ browser = webdriver.Firefox()
 browser.get('http://localhost:8000')
 
 # user sees "Solar Panel Calculator" in the title
-assert 'Solar Panel Calculator' in browser.title
+assert 'Solar Panel Calculator' in browser.title, "Browser Title was:" + browser.title
 
 # user sees a welcome message describing what the site accomplishes
 
