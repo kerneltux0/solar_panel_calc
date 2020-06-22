@@ -1,4 +1,15 @@
 from selenium import webdriver
+import unittest
+
+class NewVisitorTest(unittest.TestCase):
+    def setUp(self):
+        # do something
+    
+    def tearDown(self):
+        # do something
+    
+    def test_one(self):
+        # do something
 
 # user goes to web-site
 browser = webdriver.Firefox()
