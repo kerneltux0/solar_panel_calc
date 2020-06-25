@@ -14,6 +14,7 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         response = home_page(request)
         html = response.content.decode('utf8')
+        redir = '/location'
         self.assertTrue(html.startswith('<!DOCTYPE html>'))
         self.assertIn('<title>Solar Panel Calculator</title>', html)
         self.assertIn('<h1>Welcome to the Solar Panel Calculator</h1>', html)
@@ -21,3 +22,4 @@ class HomePageTest(TestCase):
         self.assertIn("<p>This is meant to be a ballpark figure. This uses data from the Nat'l Renewable Energy Laboratory to grab the amount of useable solar energy in your area, and is only one piece of the puzzle. Going off-grid involves many variables that are best answered by a certified installer.</p><br>", html)
         self.assertIn('<form><submit>Start!</submit></form>', html)
         self.assertTrue(html.endswith('</html>'))
+        self.assertRedirects(redir)
