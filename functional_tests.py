@@ -9,16 +9,22 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
     
     def test_visit_site(self):
+        root = 'http://localhost:8000'
         # user goes to web-site
         self.browser.get('http://localhost:8000')
         # user sees "Solar Panel Calculator" in the title
         self.assertIn('Solar Panel Calculator', self.browser.title)
-        # user sees a welcome message describing what the site accomplishes
+        # user clicks on link labeled "Start!"
+        link = self.browser.find_element_by_link_text('Start!')
+        # user clicks on link labeled "Start!"
+        link.click()
+        # user is taken to /location
+        self.assertEquals(
+            self.browser.current_url,
+            root + '/location'
+        )
+        print("Visit Site Test Passed")
 
-
-# user clicks on button labeled "start here"
-
-# user is taken to /location
 
 # user sees message about location data
 
