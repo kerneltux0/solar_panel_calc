@@ -11,7 +11,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_visit_site(self):
         root = 'http://localhost:8000'
         # user goes to web-site
-        self.browser.get('http://localhost:8000')
+        self.browser.get(root)
         # user sees "Solar Panel Calculator" in the title
         self.assertIn('Solar Panel Calculator', self.browser.title)
         # user clicks on link labeled "Start!"
@@ -24,19 +24,12 @@ class NewVisitorTest(unittest.TestCase):
             root + '/location'
         )
         print("Visit Site Test Passed")
-
-
-# user sees message about location data
-
-# user sees a page with one text field & submit button
-
-# field accepts a zip/postal code
-
-# if not valid, user sees an error message
-
-# if valid, user sees success message & button labeled "next"
-
-# user clicks "next" and routed to /power
+    
+    def test_location(self):
+        location = 'http://localhost:8000/location'
+        # user sees a page with one text field & submit button
+        # after entering valid postal code, user sees success message & "next" link/button
+        # user is redirected to /power
 
 # user sees message asking for kw/h usage
 
