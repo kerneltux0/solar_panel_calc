@@ -20,6 +20,8 @@ class LocationTest(TestCase):
         self.assertIn('<p>Please enter the zip/postal code for the location where you intend to install the solar panels.</p></br>',html)
         # user sees a form with one text field & submit button
         self.assertIn("<form method='GET'>\n    <input type='text' name='postal code' placeholder='Postal Code'>\n    <input type='submit'/>\n  </form>",html)
+
+    def test_location_behavior(self):
         # pulls location data from API
         # returns empty array for invalid zip/postal code
         # latitude-longitude saved to session
