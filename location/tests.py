@@ -18,4 +18,6 @@ class LocationTest(TestCase):
         # user sees message about location data
         # user sees a form with one text field & submit button
         # user sees error message for invalid postal code
+        # pulls location data from API
+        # latitude-longitude saved to session
         # user sees success message & "next" link/button for correct postal code
