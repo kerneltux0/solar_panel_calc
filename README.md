@@ -6,8 +6,9 @@ This readme will be updated as progress is made.
 
 ## Current Status
 
-Landing page is complete, started tests for location page.
+Completed tests for content of location page.
+Started tests for background processes of form on location page.
 
 ## Next Step(s)
 
-Finish writing tests for location page & build.
+Finish writing tests for form on location page.
