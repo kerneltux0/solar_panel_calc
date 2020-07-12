@@ -1,7 +1,8 @@
-from django.test import TestCase, Client
-from django.urls import resolve, reverse
+from django.test import TestCase
+from django.urls import resolve
 from location.views import locateUser
 from django.http import HttpRequest
+import http.client, urllib.parse
 
 # Create your tests here.
 
