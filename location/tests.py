@@ -23,6 +23,15 @@ class LocationTest(TestCase):
         self.assertIn("<form method='GET'>\n    <input type='text' name='postal code' placeholder='Postal Code'>\n    <input type='submit'/>\n  </form>",html)
 
     def test_location_behavior(self):
+        connect = http.client.HTTPConnection('api.positionstack.com')
+        params = urllib.parse.urlencode({
+            'access_key': 'ACCESS_KEY',
+            'query': '80219'
+        })
+        connect.request('GET', '/v1/forward?{}'.format(params))
+        res = connect.getresponse()
+        data = res.read()
+        print(data.decode('utf-8'))
         # pulls location data from API
         # returns empty array for invalid zip/postal code
         # latitude-longitude saved to session
