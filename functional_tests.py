@@ -27,7 +27,9 @@ class NewVisitorTest(unittest.TestCase):
     
     def test_location(self):
         location = 'http://localhost:8000/location'
+        self.browser.get(location)
         # user sees a page with one text field & submit button
+        # after entering invalid postal code, user sees error message
         # after entering valid postal code, user sees success message & "next" link/button
         # user is redirected to /power
 
