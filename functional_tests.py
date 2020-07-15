@@ -29,9 +29,13 @@ class NewVisitorTest(unittest.TestCase):
         location = 'http://localhost:8000/location'
         self.browser.get(location)
         # user sees a page with one text field & submit button
+        formField = self.browser.find_element_by_name('postal code')
+        formButton = self.browser.find_element_by_name('submit')
         # after entering invalid postal code, user sees error message
+        
         # after entering valid postal code, user sees success message & "next" link/button
         # user is redirected to /power
+        print("Location Test Passed")
 
 # user sees message asking for kw/h usage
 
