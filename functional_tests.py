@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
 
 class NewVisitorTest(unittest.TestCase):
@@ -32,8 +33,15 @@ class NewVisitorTest(unittest.TestCase):
         formField = self.browser.find_element_by_name('postal code')
         formButton = self.browser.find_element_by_name('submit')
         # after entering invalid postal code, user sees error message
-        
+        formField.send_keys('sonteuhoetnsa')
+        formButton.click()
+        formError = self.browser.find_element_by_name('Error')
+        self.assertTrue(formError)
         # after entering valid postal code, user sees success message & "next" link/button
+        formField.send_keys('M4V')
+        formButton.click()
+        formSuccess = self.browser.find_element_by_name('Success')
+        self.assertTrue(formSuccess)
         # user is redirected to /power
         print("Location Test Passed")
 
