@@ -6,8 +6,10 @@ This readme will be updated as progress is made.
 
 ## Current Status
 
-Starting functional tests for location page.
+Successfully pulling from geocoding API & working with the data.
 
 ## Next Step(s)
 
-Build process for connecting to geocoding API.
+Research saving data to the session & implement.
+Research best way to handle API keys in Django & implement.
+Render a different message to user, depending on API response (if time available).
