@@ -15,9 +15,11 @@ def locateUser(request):
         })
         api_url.request('GET', '/v1/forward?{}'.format(params))
         api_response = api_url.getresponse()
-        api_data = api_response.read()
-        info = json.loads(api_data)
-        ## create conditional for invalid zip/postal code
-        location = info['data'][0]
+        api_raw_data = api_response.read()
+        api_json_data = json.loads(api_raw_data)
+        
+        location = api_json_data
+        if location['data'][0]:
+            # save location['data'][0]['latitude'] & location['data'][0]['longitude'] to the session
 
     return render(request, 'location.html', {'location': location})
