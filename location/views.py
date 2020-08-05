@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 import http.client, urllib.parse
 import json
+import os
 
 # Create your views here.
 def locateUser(request):
@@ -9,7 +10,7 @@ def locateUser(request):
         postal_code = request.GET['postal_code']
         api_url = http.client.HTTPConnection('api.positionstack.com')
         params = urllib.parse.urlencode({
-            'access_key': 'my key',
+            'access_key': os.environ['LOCATION_KEY'],
             'query': postal_code,
             'limit': 1
         })
@@ -19,7 +20,9 @@ def locateUser(request):
         api_json_data = json.loads(api_raw_data)
         
         location = api_json_data
-        if location['data'][0]:
+        # if location['data'][0]:
+        #     request.session['latitude'] = location['data'][0]['latitude']
+        #     request.session['longitude'] = location['data'][0]['longitude']
             # save location['data'][0]['latitude'] & location['data'][0]['longitude'] to the session
 
     return render(request, 'location.html', {'location': location})
