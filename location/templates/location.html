@@ -7,6 +7,13 @@
         <input type='text' name='postal_code' placeholder='Zip/Postal Code'>
         <input type='submit' name='submit'/>
     </form>
-    {{location}}
+    
+    {% if location != null %}
+        <p>Location saved!</p>
+    {% elif location == null %}
+        <p>Please enter a valid zip/postal code.</p>
+    {% endif %}
+    
+    
     
 {% endblock %}
